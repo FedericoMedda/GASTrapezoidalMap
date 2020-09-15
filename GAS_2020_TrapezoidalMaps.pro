@@ -3,6 +3,7 @@ CONFIG(debug, debug|release){
     DEFINES += DEBUG
 }
 
+#Prova git
 # Release configuration
 CONFIG(release, debug|release){
     DEFINES -= DEBUG
