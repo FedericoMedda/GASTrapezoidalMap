@@ -2,25 +2,38 @@
 #define DAG_H
 
 #include <list>
+#include <ctime>
+#include <cg3/data_structures/arrays/arrays.h>
+
+#include <cg3/geometry/point2.h>
+#include <cg3/geometry/segment2.h>
+#include <cg3/geometry/polygon2.h>
+
+// implementazioen dag -> http://cglab.ca/~cdillaba/comp5008/mulmuley.html
 
 class dag
 {
-    int vertice;
-    std::list<int>* l1;
+    cg3::Point2d x_nodo; //stores segment endpoint
+    cg3::Segment2d y_nodo; //stores a line segment
+    cg3::Polygon2 trapezoid_node; //stores trapezoid
+
+    dag* leftChild;
+    dag* rightChild;
 
     public:
-        dag();
-        dag(int n)
-        {
-            vertice=n;
-            l1=new std::list<int>[n];
-        }
+        dag ();
+        dag(cg3::Point2d p);
+        dag(cg3::Segment2d s);
 
-        /* push_back function is used to add new element at the end of the list container */
-        void add_edge(int x, int y)
-      {
-         l1[x].push_back(y);
-      }
+        void print(dag d);
+
+        dag insert(cg3::Point2d p);
+        dag insert(cg3::Segment2d s);
+        dag insert(cg3::Polygon2 p);
+
+        bool delete_node(dag g, cg3::Point2d p);
+        bool delete_node(dag d, cg3::Segment2d s);
+        bool delete_node(dag d, cg3::Polygon2 p);
 
 };
 
