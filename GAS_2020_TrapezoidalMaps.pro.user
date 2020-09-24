@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2020-09-15T19:11:00. -->
+<!-- Written by QtCreator 4.11.0, 2020-09-24T18:17:18. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -285,8 +285,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/federico/Scrivania/Progetto GAS/baseProject/BaseProject_v2/FinalProject/GAS_2020_TrapezoidalMaps/GAS_2020_TrapezoidalMaps.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/federico/Scrivania/Progetto GAS/baseProject/BaseProject_v2/FinalProject/GAS_2020_TrapezoidalMaps/GAS_2020_TrapezoidalMaps.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">GAS_2020_TrapezoidalMaps2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/federico/Git/GASTrapezoidalMap/GAS_2020_TrapezoidalMaps.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/federico/Git/GASTrapezoidalMap/GAS_2020_TrapezoidalMaps.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

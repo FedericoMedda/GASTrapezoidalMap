@@ -24,6 +24,8 @@ class dag
         dag ();
         dag(cg3::Point2d p);
         dag(cg3::Segment2d s);
+        dag(cg3::Point2d p, cg3::Segment2d s);
+
 
         void print(dag d);
 
