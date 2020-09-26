@@ -21,14 +21,17 @@
 //----------------------------------------------------------------------------------------------
 //                         You have to write your code in the area below.
 //----------------------------------------------------------------------------------------------
-
+// IN QUESTO FILE DEVO:
+// All the user interface components are already implemented, you have just to write few lines of
+// codes in the manager in order to call the data structure methods or algorithm functions ​ that you
+// WILL implement in separated files, organized in proper folders. ​
 
 
 /* ----- Constructors/Destructors ----- */
 
 /**
  * @brief Default constructor of the manager
- */
+ */¯
 TrapezoidalMapManager::TrapezoidalMapManager(QWidget *parent) :
     QFrame(parent),
     ui(new Ui::TrapezoidalMapManager),

@@ -1,4 +1,5 @@
 #include "dag.h"
+#include <cstddef>
 #include <iostream>
 
 dag::dag()
@@ -55,27 +56,41 @@ dag::dag(cg3::Point2d p, cg3::Segment2d s)
 }
 
 
-void dag::print(dag d){
-    if (d.leftChild == nullptr && d.leftChild == nullptr) // vuoto
-    {
+void dag::print(dag* d){
+    while (d != nullptr){
+        if (d->x_nodo && d->y_nodo )
+            std::cout << d->trapezoid_node << " ";
+        if (d->y_nodo && d->trapezoid_node )
+            std::cout << d->x_nodo << " ";
+        if (d->x_nodo && d->trapezoid_node )
+          // restituisco trapezoide segment class
+        }
+}
 
+bool insert(cg3::Point2d p, dag* d){
+    if (d == nullptr){} //dag da crare
+
+    while (d != nullptr){
+        if (d->leftChild == nullptr && d.rightChild == nullptr ){
+            d->x_nodo = p
+        }
 
     }
-}
-
-dag insert(cg3::Point2d p){}
-dag insert(cg3::Segment2d s){}
-dag insert(cg3::Polygon2 p){}
-
-bool delete_node(dag g, cg3::Point2d p){
 
 }
 
-bool delete_node(dag d, cg3::Segment2d s){
+bool insert(cg3::Segment2d* s){}
+bool insert(cg3::Polygon2* p){}
+
+bool delete_node(dag* g, cg3::Point2d p){
 
 }
 
-bool delete_node(dag d, cg3::Polygon2 p){
+bool delete_node(dag* d, cg3::Segment2d s){
+
+}
+
+bool delete_node(dag* d, cg3::Polygon2 p){
 
 }
 
