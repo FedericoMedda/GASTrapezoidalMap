@@ -21,18 +21,18 @@ class dag
         dag* leftChild;
         dag* rightChild;
 
-
+        //costruttori
         dag ();
         dag(cg3::Point2d p);
         dag(cg3::Segment2d s);
-        dag(cg3::Point2d p, cg3::Segment2d s);
+        dag(cg3::Polygon2 t);
 
 
         void print(dag* d);
 
-        bool insert(cg3::Point2d* p);
-        bool insert(cg3::Segment2d* s);
-        bool insert(cg3::Polygon2* p);
+        bool insert(cg3::Point2d p, dag* d, int dir);
+        bool insert(cg3::Segment2d s, dag* d, int dir);
+        bool insert(cg3::Polygon2 t, dag* d, int dir);
 
         bool delete_node(dag g, cg3::Point2d* p);
         bool delete_node(dag d, cg3::Segment2d* s);
