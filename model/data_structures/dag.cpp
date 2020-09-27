@@ -9,7 +9,7 @@ dag::dag()
     d = new dag;
     d->x_nodo = nullptr;
     d->y_nodo = 0;
-    d->trapezoid_node = nullptr;
+    d->trapezoid_node = '\0';
 
     d->leftChild = nullptr;
     d->rightChild = nullptr;
@@ -22,7 +22,7 @@ dag::dag(cg3::Point2d p)
     d = new dag;
     d->x_nodo = p;
     d->y_nodo = 0;
-    d->trapezoid_node = nullptr;
+    d->trapezoid_node = '\0';
 
     d->leftChild = nullptr;
     d->rightChild = nullptr;
@@ -35,14 +35,14 @@ dag::dag(cg3::Segment2d s){
     d = new dag;
     d->x_nodo = nullptr;
     d->y_nodo = s;
-    d->trapezoid_node = nullptr;
+    d->trapezoid_node = '\0';
 
     d->leftChild = nullptr;
     d->rightChild = nullptr;
 
 }
 
-dag::dag(cg3::Polygon2 t)
+dag::dag(char t)
 {
     //create a new node with p and s (endpoint segment and segment stored)
     dag* d;
@@ -60,11 +60,12 @@ void dag::print(dag* d)
 {
     while (d != nullptr){
         if (d->x_nodo && d->y_nodo )
-            std::cout << d->trapezoid_node << " ";
+            std::cout << d->trapezoid_node;
         if (d->y_nodo && d->trapezoid_node )
             std::cout << d->x_nodo << " ";
         if (d->x_nodo && d->trapezoid_node )
           // restituisco trapezoide segment class
+            std::cout << 'ws';
         }
 }
 
@@ -84,7 +85,7 @@ bool insert(cg3::Point2d p, dag* d, int dir)
             d1 = new dag;
             d1->x_nodo = p;
             d1->y_nodo = 0;
-            d1->trapezoid_node = nullptr;
+            d1->trapezoid_node = '\0';
 
             d1->leftChild = nullptr;
             d1->rightChild = nullptr;
@@ -125,7 +126,7 @@ bool insert(cg3::Segment2d s, dag* d, int dir)
             d1 = new dag;
             d1->x_nodo = nullptr;
             d1->y_nodo = s;
-            d1->trapezoid_node = nullptr;
+            d1->trapezoid_node = '\0';
 
             d1->leftChild = nullptr;
             d1->rightChild = nullptr;
@@ -150,7 +151,7 @@ bool insert(cg3::Segment2d s, dag* d, int dir)
     return 0;
 
 }
-bool insert(cg3::Polygon2 t, dag* d, int dir)
+bool insert(char t, dag* d, int dir)
 {
     if (d == nullptr){
         dag d(t);
@@ -190,59 +191,52 @@ bool insert(cg3::Polygon2 t, dag* d, int dir)
     return 0;
 }
 
-bool delete_node(dag* d, cg3::Point2d p)
+bool search(cg3::Point2d p, dag* d)
 {
-    if (d == nullptr)
-       return 0;
+    if (d == nullptr){
+        return 0;
+    } //dag da crare
 
     while (d != nullptr){
-
-        dag* dreplace;
-        dag* dl = d->leftChild;
-        dag* dr = d->rightChild;
-
-        if (d->x_nodo == p)
-        {
-            //elimino il nodo
-            if (d->rightChild == nullptr && d->leftChild == nullptr)
-            {
-                free (d);
-                d = dreplace
-                return 1;
-            }
-        }
-
-        if (dr->x_nodo == p)
-        {
-            d->rightChild = dr->rightChild;
-            d->rightChild = dr->rightChild;
-            free (dr);
+        if(d->x_nodo == p)
             return 1;
-        }
 
-        if (dl->x_nodo == p)
-        {
-            d->leftChild = dl->rightChild;
-            free (dr);
-            return 1;
-        }
-
-
-
-
-        delete_node(d->leftChild, p);
-        delete_node(d->rightChild, p);
-        }
-
+        search(p, d->rightChild);
+        search(p, d->leftChild);
     }
     return 0;
 }
 
-bool delete_node(dag* d, cg3::Segment2d s){
+bool search(cg3::Segment2d s, dag* d)
+{
+    if (d == nullptr){
+        return 0;
+    } //dag da crare
 
+    while (d != nullptr){
+        if(d->y_nodo == s)
+            return 1;
+
+        search(s, d->rightChild);
+        search(s, d->leftChild);
+    }
+    return 0;
 }
 
-bool delete_node(dag* d, cg3::Polygon2 p){
+bool search(char t, dag* d)
+{
+    if (d == nullptr){
+        return 0;
+    } //dag da crare
 
+    while (d != nullptr){
+        if(d->trapezoid_node == t)
+            return 1;
+
+        search(t, d->rightChild);
+        search(t, d->leftChild);
+    }
+    return 0;
 }
+
 

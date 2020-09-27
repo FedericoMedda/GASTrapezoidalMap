@@ -16,7 +16,7 @@ class dag
     public:
         cg3::Point2d x_nodo; //stores segment endpoint
         cg3::Segment2d y_nodo; //stores a line segment
-        cg3::Polygon2 trapezoid_node; //stores trapezoid
+        char trapezoid_node; //stores trapezoid
 
         dag* leftChild;
         dag* rightChild;
@@ -25,7 +25,7 @@ class dag
         dag ();
         dag(cg3::Point2d p);
         dag(cg3::Segment2d s);
-        dag(cg3::Polygon2 t);
+        dag(char t);
 
 
         void print(dag* d);
@@ -34,10 +34,9 @@ class dag
         bool insert(cg3::Segment2d s, dag* d, int dir);
         bool insert(cg3::Polygon2 t, dag* d, int dir);
 
-        bool delete_node(dag g, cg3::Point2d* p);
-        bool delete_node(dag d, cg3::Segment2d* s);
-        bool delete_node(dag d, cg3::Polygon2* p);
-
+        bool search(cg3::Point2d p, dag* d);
+        bool search(cg3::Segment2d s, dag* d);
+        bool search(cg3::Polygon2 t, dag* d);
 };
 
 
